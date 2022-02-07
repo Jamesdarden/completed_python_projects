@@ -97,15 +97,14 @@ class GeniusComputerPlayer(Player):
             state.board[possible_move] = ' '
             state.current_winner = None
             sim_score['position'] = possible_move # this represents the most optimal move
-            print(player, ' player at the moment')
-            print(sim_score, ' sim score')
+           
             #step 4 update dictionare if nessassary with best move
             
             if player == max_player: # we are trying to maximize max player
                 if sim_score['score'] > best['score']:
                     best = sim_score
             else: # minimize other player
-                if sim_score['score'] > best['score']:
+                if sim_score['score'] < best['score']:
                     best = sim_score
                     
         return best
